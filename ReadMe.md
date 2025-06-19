@@ -63,6 +63,70 @@ level 4
 p can be entered from the top or bottom and right, then it switches to a q, after which it cannot be exited from the right, only left, and vice versa for q becomes p, its a fun mechanic
 
 frog level is a part of mida 2, its sort of like an arc agi puzzle
+## Mida Layer 2: Static Mix
+
+Layer 2 of Mida introduces the concept of the **Static Mix**, a foundational and immutable core layer designed for managing essential audio parameters such as gain, pan, and basic filtering (hi-cut, low-cut). This layer serves as the stable, unchanging base upon which additional experimentation and processing layers can be built.
+
+### Key Features:
+
+- **Immutable Core:**
+
+  - Once defined, the static mix parameters remain unchanged, ensuring consistent and reliable sound staging.
+
+- **Essential Parameters:**
+
+  - **Gain:** Volume adjustment (e.g., `\\ = -3db`).
+  - **Pan:** Stereo positioning (e.g., `p = 20>`).
+  - **Hi-Cut & Low-Cut Filters:** Simple, effective filtering (`hc = 10khz`, `lc = 80hz`).
+
+- **Declarative Syntax:**
+
+  ```mida
+  'Kick 1' <~*^
+    \\ = -3db
+    p = 20>
+    hc = 10khz
+    lc = 80hz
+  ```
+
+  Clearly readable and easy to manage.
+
+### Benefits:
+
+- **Safety and Stability:**
+
+  - Provides a known-good state for your audio sessions, preventing unintended changes.
+
+- **Creative Freedom:**
+
+  - Experiment with additional layers (DSP effects, routing) without fear of permanently affecting the core mix.
+
+- **Collaboration-Friendly:**
+
+  - Simple, text-based parameters facilitate collaboration between humans and AI models, allowing easy iteration and adjustments.
+
+### Usage Examples:
+
+Defining a simple static mix for two instruments:
+
+```mida
+'Bass 1' <~*^
+  \\ = -4db
+  p = <10
+  hc = 5khz
+  lc = 50hz
+
+'Guitar 1' <~*^
+  \\ = -2db
+  p = 15>
+  hc = 12khz
+  lc = 100hz
+```
+
+### Conclusion:
+
+Layer 2's **Static Mix** in Mida ensures a stable foundation, allowing safe experimentation and seamless integration of human creativity and AI-driven adjustments, revolutionizing the way audio production workflows evolve.
+
 # Mida Network Syntax - Layer 3
 
 This document describes the Layer 3 network syntax in Mida, focusing on managed and unmanaged switches, transmitters (`@tx`), receivers (`@rx`), dynamic subscriptions, labels, and network matrix management.
